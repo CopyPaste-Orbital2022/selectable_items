@@ -79,12 +79,12 @@ extension SelectableItemsX<T> on SelectableItems<T> {
 
   SeletableItemsFailure? valueIsValid(T value) {
     if (maxValue != null && compare != null) {
-      if (compare!(maxValue!, value) >= 0) {
+      if (compare!(maxValue as T, value) >= 0) {
         return SeletableItemsFailure.valueTooBig(maxValue: maxValue);
       }
     }
     if (minValue != null && compare != null) {
-      if (compare!(value, minValue!) >= 0) {
+      if (compare!(value, minValue as T) >= 0) {
         return SeletableItemsFailure.valueTooSmall(minValue: minValue);
       }
     }
